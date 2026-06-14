@@ -1,95 +1,42 @@
 # blockchain-payment-system
 
-A blockchain-based payment system for secure and transparent transactions.
+A lightweight blockchain-inspired payment system with a merchant frontend, gateway API, and transaction service.
 
-## Features
+## What is included
 
-- Secure peer-to-peer payments
-- Transaction history tracking
-- Blockchain ledger implementation
-- User authentication
+- Merchant payment form in the React app
+- Gateway API for payment quotes and status checks
+- Transaction service for reading and creating transactions
+- Basic environment-based configuration for local development
 
-## Getting Started
+## Quick start
 
-### Prerequisites
-
-- Node.js (v16+)
-- npm
-
-### Installation
+### 1. Install dependencies
 
 ```sh
-npm install
+cd apps/gateway-api && npm install
+cd ../web-merchant && npm install
+cd ../../services/transaction-service && npm install
+```
 
-cd ../../apps/gateway-api
-npm init -y
-npm install express cors body-parser dotenv
-npm install nodemon --save-dev
+### 2. Run the services
 
-# Create basic index.js
-echo "require('dotenv').config();
-const express = require('express');
-const app = express();
-app.use(express.json());
+```sh
+cd apps/gateway-api && npm run dev
+cd apps/web-merchant && npm run dev
+cd services/transaction-service && node index.js
+```
 
-app.get('/api/health', (req, res) => res.send('API running'));
-app.listen(5000, () => console.log('Server running on port 5000'));" > index.js
+### 3. Verify the endpoints
 
-# Add start script
-npx npm-add-script -k "dev" -v "nodemon index.js"
+```sh
+curl http://localhost:5000/api/health
+curl http://localhost:4000/health
+```
 
-# Run it
-npm run dev
-cd ../../apps/gateway-api
-npm init -y
-npm install express cors body-parser dotenv
-npm install nodemon --save-dev
+## Suggested next improvements
 
-# Create basic index.js
-echo "require('dotenv').config();
-const express = require('express');
-const app = express();
-app.use(express.json());
-
-app.get('/api/health', (req, res) => res.send('API running'));
-app.listen(5000, () => console.log('Server running on port 5000'));" > index.js
-
-# Add start script
-npx npm-add-script -k "dev" -v "nodemon index.js"
-
-# Run it
-npm run dev
-
-curl https://get.ignite.com/cli! | bash
-
-cd ../../blockchain
-ignite scaffold chain payx-chain
-cd payx-chain
-ignite chain serve
-cd ../../infra
-touch docker-compose.yaml
-version: '3.8'
-services:
-  postgres:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: crypto
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
-
-volumes:
-  pgdata:
-
-docker-compose up -d
-cd ../services/transaction-service
-npm init -y
-npm install express pg redis
+- Add real wallet signing and blockchain confirmation flow
+- Add authentication and payment authorization
+- Add rate limiting, request validation, and structured logs
+- Add tests and CI for the gateway and transaction service

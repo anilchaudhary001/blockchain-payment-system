@@ -1,43 +1,88 @@
-
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.panel {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 24px;
+  padding: 1.25rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: #8b5cf6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1, h2 {
+  margin-top: 0.2rem;
+  color: #eff6ff;
 }
 
-.card {
-  padding: 2em;
+.lede {
+  color: #cbd5e1;
 }
 
-.read-the-docs {
-  color: #888;
+.payment-form {
+  display: grid;
+  gap: 0.9rem;
 }
+
+.payment-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: #e5eefb;
+  font-size: 0.95rem;
+}
+
+.payment-form input {
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #111827;
+  color: #f8fafc;
+  padding: 0.75rem;
+}
+
+.payment-form button {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: white;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+}
+
+.status-box {
+  margin-top: 0.9rem;
+  padding: 0.85rem;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #dbeafe;
+}
+
+.mini-card {
+  margin-top: 0.9rem;
+  padding: 0.85rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 42, 0.85);
+  color: #e2e8f0;
+}
+
+.info-panel ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: #e2e8f0;
+}
+
